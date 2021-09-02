@@ -1,11 +1,11 @@
 export default function Menu() {
   return (
-    <div>
+    <nav>
       <ul>
         <li>Sobre</li>
         <li>Cronograma</li>
         <li>Nossas redes</li>
       </ul>
-    </div>
+    </nav>
   )
 }

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <div>
+    <footer>
       <p>&copy; Brainn.co Servicos de Tecnologia LTDA</p>
-    </div>
+    </footer>
   )
 }
