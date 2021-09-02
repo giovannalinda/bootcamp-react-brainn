@@ -1,7 +1,9 @@
+import H1 from './h1'
+
 export default function Content() {
   return (
-    <main>
-      <h1>Cronograma</h1>
+    <main className="main">
+      <H1>Cronograma</H1>
       <p>
         O objetivo desta semana será nivelar o conhecimento para o Bootcamp. Através de desafios diários, vamos falar sobre os fundamentos da web necessários para utilizar o React: HTML, CSS, features do JS, DOM API, Fetch API, etc.
       </p>

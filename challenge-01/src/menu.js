@@ -1,6 +1,6 @@
 export default function Menu() {
   return (
-    <nav>
+    <nav className="navigation">
       <ul>
         <li>Sobre</li>
         <li>Cronograma</li>
