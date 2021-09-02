@@ -1,15 +1,8 @@
 import ReactDOM from 'react-dom'
-
-function Title() {
-  return (
-    <>
-      <h1>Meu app</h1>
-      <span>Hello world</span>
-    </>
-  )
-}
+import App from './app'
 
 ReactDOM.render(
-  <Title />,
+  <App />,
   document.querySelector('#root')
 )
+
