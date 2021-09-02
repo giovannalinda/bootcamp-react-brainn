@@ -1,3 +1,3 @@
 # bootcamp React
 
-Aprendizados do Bootcamp de React desenvolvido pela Brainn.Co
+Learnings from React Bootcamp developed by Brainn.Co
