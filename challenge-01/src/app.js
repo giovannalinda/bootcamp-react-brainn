@@ -1,6 +1,7 @@
 import Header from './header'
 import Menu from './menu'
 import Sidebar from './sidebar'
+import Content from './content'
 
 function App() {
   return ( 
@@ -8,6 +9,7 @@ function App() {
       <Header />,
       <Menu />,
       <Sidebar />,
+      <Content />,
     </div>
   )
 }
