@@ -1,8 +1,14 @@
 import Header from './header'
+import Menu from './menu'
+import Sidebar from './sidebar'
 
 function App() {
   return ( 
-    <Header />
+    <div>
+      <Header />,
+      <Menu />,
+      <Sidebar />,
+    </div>
   )
 }
 
