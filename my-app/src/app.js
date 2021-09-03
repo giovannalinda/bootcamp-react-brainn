@@ -1,40 +1,37 @@
+import { useState } from 'react'
+
 function App() {
-  return (
-   <div>
-      <Title>Titulo</Title>
-      <Sidebar />
-      <Section />
-   </div>
-  )
-}
+  const [counter, setCounter] = useState(null)
+  /*
+  const state = useState(0)
+  const counter = state[0]
+  const setCounter = state[1]
+  */
 
-function Title({ children }) {
-  return (
-    <h1>{children}</h1>
-  )
-}
+  function increment() {
+    setCounter(counter + 1)
+  }
 
-function Title2({ children }) {
-  return (
-    <h2>{children}</h2>
-  )
-}
+  function decrement() {
+    setCounter(counter - 1)
+  }
 
-function Sidebar() {
   return (
-    <aside>
-      <Title2>Sidebar</Title2>
-    </aside>
-  )
-}
-
-function Section() {
-  return (
-    <section>
-      <h2>Conteúdo</h2>
-      <p>parágrafo</p>
-    </section>
+    <>
+      {counter === null 
+      ? <h1>Contador zerado</h1> 
+      : <h1>Contador: {counter}</h1>
+      }
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </>
   )
 }
 
 export default App
+/*
+const button = document.querySelector('button')
+button.addEventListener('click', (event) => {
+
+})
+*/
