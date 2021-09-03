@@ -1,5 +1,6 @@
 import H3 from './h3'
 import H1 from './h1'
+import Button from './button'
 
 export default function Sidebar() {
   return (
@@ -11,6 +12,7 @@ export default function Sidebar() {
       <p>
         O Bootcamp React acontece ao longo de 4 semanas e é voltado para aqueles que querem se desenvolver em React.js. Você aprenderá com grandes profissionais do mercado a aprofundar seu conhecimento técnico, aprimorar suas skills e atingir seu potencial de carreira.
       </p>
+      <Button kind="primary">Inscrever-se</Button>
     </aside>
   )
 }

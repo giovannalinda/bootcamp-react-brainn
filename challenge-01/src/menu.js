@@ -4,7 +4,7 @@ export default function Menu() {
       <ul>
         <li>Sobre</li>
         <li>Cronograma</li>
-        <li>Nossas redes</li>
+        <li>Inscrições</li>
       </ul>
     </nav>
   )
