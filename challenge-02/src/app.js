@@ -46,11 +46,17 @@ function App() {
   const [title, setTitle] = useState(articles[0].title)
   const [content, setContent] = useState(articles[0].content)
 
+  function handleOpenArticle(event, article) {
+    event.preventDefault()
+    setTitle(article.title)
+    setContent(article.content)
+  }
+
   return ( 
     <div>
       <Header />
       <Menu />
-      <Sidebar articles={articles} />
+      <Sidebar articles={articles} onOpenArticle={handleOpenArticle}/>
       <Content>
         <H1>{title}</H1>
         {content}

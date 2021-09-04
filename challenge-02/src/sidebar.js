@@ -1,11 +1,9 @@
-export default function Sidebar(props) {
-  console.log(props.articles)
-
+export default function Sidebar({articles, onOpenArticle}) {
   return (
     <aside className="sidebar">
       <ul>
-        {props.articles.map(article => (
-          <li key={article.id}>
+        {articles.map(article => (
+          <li key={article.id} onClick={(event) => onOpenArticle(event, article)}>
             <a href={article.title}>{article.title}</a>
           </li>
         ))}
