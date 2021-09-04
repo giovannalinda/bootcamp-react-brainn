@@ -1,10 +1,10 @@
-import { useState } from 'react';
-
+import { useState } from 'react'
 import Header from './header'
 import Menu from './menu'
 import Sidebar from './sidebar'
 import Content from './content'
 import Footer from './footer'
+import H1 from './h1'
 
 const articles = [
   { 
@@ -12,7 +12,6 @@ const articles = [
     title: "O que faz um desenvolvedor Front end",
     content: (
       <>
-        <h1>O que faz um desenvolvedor Front end</h1>
         <p>O desenvolvedor front-end é responsável pela experiência do usuário dentro de uma aplicação web, é ele quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir. </p>
         <h2>Como aprender?</h2>
         <p>Para ser um desenvolvedor front-end você precisa se familiarizar com lógica de programação aprender algumas linguagens, como por exemplo: </p>
@@ -30,7 +29,6 @@ const articles = [
       title: "O que o react pode fazer",
       content: (
         <>
-          <h1>O que o React pode fazer</h1>
           <p>O React é uma biblioteca JavaScript para construir interfaces de usuário</p>
           <h4>O que você vai aprender</h4>
           <ul>
@@ -45,12 +43,18 @@ const articles = [
   ]
 
 function App() {
+  const [title, setTitle] = useState(articles[0].title)
+  const [content, setContent] = useState(articles[0].content)
+
   return ( 
     <div>
       <Header />
       <Menu />
       <Sidebar articles={articles} />
-      <Content />
+      <Content>
+        <H1>{title}</H1>
+        {content}
+      </Content>
       <Footer />
     </div>
   )

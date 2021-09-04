@@ -15,11 +15,6 @@ button {
   cursor: pointer;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-}
-
 body {
   background: var(--black);
   text-rendering: optimizeLegibility !important;
@@ -42,6 +37,11 @@ body {
   align-items: center;
   margin: 20px 0 0 35vw;
   width: 100%;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
 }
 
 .navigation li {
@@ -87,6 +87,16 @@ body {
   margin-top: 22px;
 }
 
+.sidebar a {
+  display: block;
+  color: var(--pink);
+  text-decoration: none;
+}
+
+.sidebar li:not(.sidebar li:first-child) {
+  margin-top: 16px;
+}
+
 button.primary {
   width: 172px;
   background: var(--pink);
@@ -106,6 +116,7 @@ button.primary {
   max-width: 500px;
   display: grid;
   grid-gap: 16px;
+  color: var(--white);
 }
 
 .main h1 {
