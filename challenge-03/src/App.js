@@ -30,7 +30,7 @@ function App() {
           <h1>Registro de Carros</h1>
 
           <div className="form-image">
-            <label>Imagem (URL)</label>
+            <label>Imagem</label>
             <input type="url" id="image" name="image"/>
           </div>
 
@@ -75,9 +75,7 @@ function App() {
                 <td>{car.year}</td>
                 <td>{car.plate}</td>
                 <td>{car.color}</td>
-                <th>
-                  <button>X</button>
-                </th>
+                <button className="button-delete">X</button>
               </tr>
             ))}
           </tbody>

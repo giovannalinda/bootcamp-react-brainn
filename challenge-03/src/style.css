@@ -1,0 +1,71 @@
+:root {
+  --white: #fff;
+  --pink: #ff3366;
+  --black: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+button {
+  cursor: pointer;
+  background: var(--pink);
+  width: 160px;
+  height: 48px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 12px;
+}
+
+h1 {
+  color: var(--black);
+  padding: 20px;
+}
+
+input {
+  padding: 4px;
+  margin: 4px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+body {
+  background: var(--white);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+table th {
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.button-delete {
+  cursor: pointer;
+  background: var(--pink);
+  width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: none;
+  color: var(--white);
+  margin-top: 12px;
+}
+
