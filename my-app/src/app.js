@@ -1,30 +1,64 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-const url = 'https://ws.apicep.com/cep.json?code=[CEP]'
+function getCepUrl(cep) {
+  return 'https://ws.apicep.com/cep.json?code=[CEP]'
+  .replace('[CEP]', cep)
+}
 
 function App() {
-  console.log('montando componente...')
+  const [counter, setCounter] = useState(0)
+  const [cep, setCep] = useState(null)
+
   useEffect(() => {
-    async function getCep() {
-      console.log('buscando cep...')
-      const response = await fetch(url.replace('[CEP]', '08344620'))
-      const json = await response.json()
-      console.log('cep', json)
+    function searchCep() {
+      if(cep === null) {
+        return
+      }
+      fetch(getCepUrl(cep))
+      .then(result => result.json())
+      .then(result => console.log('resultado: ', result))
     }
-    getCep()
-  })
-  /*
-    async function handleClick() {
-    console.log('buscando cep...')
-    const response = await fetch(url.replace('[CEP]', '08344620'))
-    const json = await response.json()
-    console.log('cep', json)
+    searchCep()
+
+    return() => {
+      console.log('clean app')
     }
-    console.log('2) componente pronto para montar')
-  */
+// só funciona se for passado no input, caso contrario nada renderiza
+// useEffect depende estritamente da atualização do cep
+  }, [cep])
+
   return (
     <>
-      <button>Buscar CEP</button>
+    <Counter counter={counter} setCounter={setCounter}/>
+    <Cep cep={cep} setCep={setCep} />
+    </>
+  )
+}
+
+function Counter({ counter, setCounter }) {
+  return (
+    <>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((counter) => counter + 1)}>+</button>
+      <button onClick={() => setCounter((counter) => counter - 1)}>-</button>
+    </>
+  )
+}
+
+function Cep({ cep, setCep }) {
+  function handleSubmit(event) {
+    event.preventDefault()
+    setCep(
+      event.target.elements.campoCep.value
+    )
+
+  }
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input type='text' name='campoCep' />
+        <button type='submit'>Buscar cep</button>
+      </form>
     </>
   )
 }
