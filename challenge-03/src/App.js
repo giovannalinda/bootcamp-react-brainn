@@ -29,6 +29,7 @@ function App() {
         if (response.error) {
           alert(response.message) 
         } else {
+          alert('Carro cadastrado com sucesso!')
           setCars([...cars, car])
         }
       })
