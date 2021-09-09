@@ -10,39 +10,17 @@
   box-sizing: 0;
 }
 
-button {
-  cursor: pointer;
-  background: var(--pink);
-  width: 160px;
-  height: 48px;
-  padding: 0 8px;
-  border-radius: 4px;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-top: 12px;
-}
-
-h1 {
-  color: var(--black);
-  padding: 20px;
-}
-
-input {
-  padding: 4px;
-  margin: 4px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
 body {
   background: var(--white);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+h1 {
+  color: var(--black);
+  padding: 20px;
 }
 
 main {
@@ -57,6 +35,45 @@ table th {
   padding: 10px;
 }
 
+.text-field input {
+  padding: 10px;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 240px;
+  border: none;
+  border-radius: 2px;
+}
+
+.text-field input[type="color"] {
+  height: 90px;
+  width: 150px;
+}
+
+.register {
+  width: 400px;
+  height: 100%;
+  background: #f0f0f0;
+  padding: 40px;
+  margin: 130px;
+  border-radius: 4px;
+}
+
+.button-submit {
+  cursor: pointer;
+  background: var(--pink);
+  width: 400px;
+  height: 48px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 12px;
+}
+
 .button-delete {
   cursor: pointer;
   background: var(--pink);
@@ -69,3 +86,9 @@ table th {
   margin-top: 12px;
 }
 
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+}

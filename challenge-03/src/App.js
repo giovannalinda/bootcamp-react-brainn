@@ -1,63 +1,102 @@
 import { useState, useEffect } from 'react'
+import TextField from './components/TextField'
 import { httpGet, httpPost, httpDelete } from './http';
 
+const url = 'http://localhost:3333/cars'
+
 function App() {
+  const [cars, setCars] = useState([])
 
-  const mockedCars = [{
-    image: '202',
-    brandModel: 'fiat',
-    year: 2020,
-    plate: 'ABC123',
-    color: 'blue'
-  }]
-
-  const [cars, setCars] = useState(mockedCars)
-  console.log('cars', cars)
-
-  const url = 'http://localhost:3333/cars'
-/*
   useEffect(() => {
-    fetch(url)
-      .then(response => response.json())
-      .then(setCars)
+    httpGet(url).then(setCars)
   }, []) 
-*/
+
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    const { image, brandModel, year, plate, color } = event.target
+
+    const car = {
+      image: image.value,
+      brandModel: brandModel.value,
+      year: year.value,
+      plate: plate.value,
+      color: color.value
+    }
+
+    httpPost(url, car)
+      .then((response) => {
+        if (response.error) {
+          alert(response.message) 
+        } else {
+          setCars([...cars, car])
+        }
+      })
+  
+    event.target.reset()
+  }
+
+  function handleDelete(plate) {
+    httpDelete(url, {plate})
+      .then((response) => {
+        if (response.error) {
+          alert(response.message)
+        } else {
+          setCars(cars.filter(car => car.plate !== plate))
+        }
+      }
+    )
+  }
 
   return (
     <main>
-      <div>
-        <form className="form" type="submit">
+      <div className="register">
+        <form className="form" onSubmit={handleSubmit}>
           <h1>Registro de Carros</h1>
 
-          <div className="form-image">
-            <label>Imagem</label>
-            <input type="url" id="image" name="image"/>
-          </div>
+          <TextField 
+            id="image"
+            labelText="Imagem" 
+            type="url"
+            name="image"
+          />
 
-          <div className="form-model">
-            <label>Modelo</label>
-            <input type="text" id="brand-model" name="brand-model"/>
-          </div>
+          <TextField 
+            id="brandModel"
+            labelText="Modelo"
+            name="brandModel"
+          />
 
-          <div className="form-year">
-            <label>Ano</label>
-            <input type="number" id="year" name="year"/>
-          </div >
+          <TextField 
+            id="year"
+            labelText="Ano"
+            name="year"
+            type="number"
+          />
 
-          <div className="form-plate">
-            <label>Placa</label>
-            <input type="text" id="plate" name="plate" pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}"/>
-          </div>
+          <TextField 
+            id="plate"
+            labelText="Placa"
+            name="plate"
+            pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}"
+          />
 
-          <div className="form-color">
-            <label>Cor</label>
-            <input type="color" id="color" name="color"/>
-          </div>
+          <TextField 
+            id="color"
+            labelText="Cor"
+            name="color"
+            type="color"
+          />
 
-          <button type="submit">Cadastrar carro</button>
+          <button 
+            className="button-submit" 
+            type="submit"
+          >
+            Cadastrar carro
+          </button>
         </form>
 
-        <table className="Table">
+        <table className="table">
           <thead>
             <tr>
               <th>Imagem</th>
@@ -65,17 +104,31 @@ function App() {
               <th>Ano</th>
               <th>Placa</th>
               <th>Cor</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {cars.map(car => (
               <tr key={car.plate}>
-                <td><img src={car.image} alt="carro"/></td>
+                <td>
+                  <img 
+                    className="thumbnail"
+                    src={car.image}
+                    alt="carro"
+                  />
+                </td>
                 <td>{car.brandModel}</td>
                 <td>{car.year}</td>
                 <td>{car.plate}</td>
                 <td>{car.color}</td>
-                <button className="button-delete">X</button>
+                <td> 
+                  <button
+                    className="button-delete"
+                    onClick={() => handleDelete(car.plate)}
+                  >
+                    X
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

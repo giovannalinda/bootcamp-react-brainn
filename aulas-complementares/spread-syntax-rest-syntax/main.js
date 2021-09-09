@@ -1,5 +1,4 @@
 // Spread de objetos
-
 const person = {
   name: 'Giovanna',
   surname: 'Linda',
@@ -43,7 +42,6 @@ console.log('arrStr:', arrStr)
 // Rest com Destructuring Assignment
 // delete newPerson.age
 const { age, ...newPerson } = personBirthdayYear
-
 console.log('newPerson:', newPerson)
 
 // Rest syntax em funções
