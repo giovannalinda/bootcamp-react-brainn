@@ -27,11 +27,11 @@ function App() {
     httpPost(url, car)
       .then((response) => {
         if (response.error) {
-          alert(response.message) 
-        } else {
-          alert('Carro cadastrado com sucesso!')
-          setCars([...cars, car])
-        }
+          return alert(response.message)
+        } 
+
+        alert('Carro cadastrado com sucesso!')
+        setCars([...cars, car])
       })
   
     event.target.reset()
@@ -41,10 +41,9 @@ function App() {
     httpDelete(url, {plate})
       .then((response) => {
         if (response.error) {
-          alert(response.message)
-        } else {
-          setCars(cars.filter(car => car.plate !== plate))
-        }
+          return alert(response.message)
+        } 
+        setCars(cars.filter(car => car.plate !== plate))
       }
     )
   }
