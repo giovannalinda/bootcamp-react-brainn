@@ -4,7 +4,6 @@ import Menu from './menu'
 import Sidebar from './sidebar'
 import Content from './content'
 import Footer from './footer'
-import H1 from './h1'
 
 const articles = [
   { 
@@ -58,7 +57,7 @@ function App() {
       <Menu />
       <Sidebar articles={articles} onOpenArticle={handleOpenArticle}/>
       <Content>
-        <H1>{title}</H1>
+        <h1>{title}</h1>
         {content}
       </Content>
       <Footer />

@@ -11,10 +11,6 @@
   box-sizing: 0;
 }
 
-button {
-  cursor: pointer;
-}
-
 body {
   background: var(--black);
   text-rendering: optimizeLegibility !important;
@@ -64,29 +60,6 @@ body {
   background: var(--shape);
 }
 
-.sidebar h1 {
-  font-weight: 900;
-  font-size: 35px;
-  line-height: 78px;
-  color: var(--pink);
-}
-
-.sidebar h3 {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
-  color: var(--white);
-  margin-top: 18px;
-}
-
-.sidebar p {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: var(--white);
-  margin-top: 22px;
-}
-
 .sidebar a {
   display: block;
   color: var(--pink);
@@ -95,19 +68,6 @@ body {
 
 .sidebar li:not(.sidebar li:first-child) {
   margin-top: 16px;
-}
-
-button.primary {
-  width: 172px;
-  background: var(--pink);
-  height: 48px;
-  padding: 0 6px;
-  border-radius: 4px;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-top: 22px;
 }
 
 .main {
@@ -123,40 +83,6 @@ button.primary {
   font-weight: 900;
   font-size: 48px;
   color: var(--pink);
-}
-
-.main .goal {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: var(--white);
-}
-
-.main .participation {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: var(--white);
-}
-
-.main .live {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: var(--white);
-}
-
-button.secondary {
-  background: var(--pink);
-  width: 160px;
-  height: 48px;
-  padding: 0 8px;
-  border-radius: 4px;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-top: 12px;
 }
 
 .footer p {
