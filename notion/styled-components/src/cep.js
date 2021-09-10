@@ -1,6 +1,6 @@
-import style from './cep.module.css'
+import styled from 'styled-components'
 
-export default function Cep({ cep, setCep }) {
+export default function Cep({ cep, setCep, color }) {
   function handleSubmit(event) {
     event.preventDefault()
     setCep(
@@ -12,9 +12,25 @@ export default function Cep({ cep, setCep }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input className={style['input-cep']} type='text' name='campoCep' />
-        <button type='submit'>Buscar cep</button>
+        <MeuInput type='text' name='campoCep' color={color} />
+        <Button type='submit'>Buscar cep</Button>
       </form>
     </>
   )
 }
+  const MeuInput = styled.input`
+    background: ${(props) => props.color};
+    border: none;
+    color: white;
+  `
+
+  const Button = styled.button`
+  color: pink;
+  background: red;
+  border: none;
+  `
+
+
+  //function Input({type, name, color}) {
+  //  return <input type={type} name={name} style={{ backgroundColor: color }}/>
+  //}

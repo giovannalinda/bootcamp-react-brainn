@@ -108,7 +108,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {cars.map(car => (
+            {cars?.map(car => (
               <tr key={car.plate}>
                 <td>
                   <img 
