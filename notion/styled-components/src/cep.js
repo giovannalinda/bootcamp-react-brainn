@@ -6,7 +6,6 @@ export default function Cep({ cep, setCep, color }) {
     setCep(
       event.target.elements.campoCep.value
     )
-
   }
 
   return (
@@ -20,14 +19,24 @@ export default function Cep({ cep, setCep, color }) {
 }
   const MeuInput = styled.input`
     background: ${(props) => props.color};
+    background: white;
+    color: black;
+    width: 200px;
+    height: 20px;
     border: none;
-    color: white;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 5px;
   `
 
   const Button = styled.button`
-  color: pink;
-  background: red;
-  border: none;
+    color: white;
+    background: black;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px;
   `
 
 
