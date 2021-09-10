@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
-import TextField from './components/TextField'
+import styled from 'styled-components'
+import Form from './components/Form'
+import Button from './components/Button'
 import { httpGet, httpPost, httpDelete } from './http';
+import CreateGlobalStyled from './styles/global'
 
 const url = 'http://localhost:3333/cars'
 
@@ -8,7 +11,11 @@ function App() {
   const [cars, setCars] = useState([])
 
   useEffect(() => {
-    httpGet(url).then(setCars)
+    httpGet(url).then((response) => {
+      if (!response.error) {
+        setCars(response)
+      }
+    })
   }, []) 
 
   function handleSubmit(event) {
@@ -49,70 +56,26 @@ function App() {
   }
 
   return (
-    <main>
-      <div className="register">
-        <form className="form" onSubmit={handleSubmit}>
-          <h1>Registro de Carros</h1>
-
-          <TextField 
-            id="image"
-            labelText="Imagem" 
-            type="url"
-            name="image"
-          />
-
-          <TextField 
-            id="brandModel"
-            labelText="Modelo"
-            name="brandModel"
-          />
-
-          <TextField 
-            id="year"
-            labelText="Ano"
-            name="year"
-            type="number"
-          />
-
-          <TextField 
-            id="plate"
-            labelText="Placa"
-            name="plate"
-            pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}"
-          />
-
-          <TextField 
-            id="color"
-            labelText="Cor"
-            name="color"
-            type="color"
-          />
-
-          <button 
-            className="button-submit" 
-            type="submit"
-          >
-            Cadastrar carro
-          </button>
-        </form>
-
+    <Container>
+      <CreateGlobalStyled />
+      <Register>
+        <Form onSubmit={handleSubmit} />
         <table className="table">
           <thead>
             <tr>
-              <th>Imagem</th>
-              <th>Modelo</th>
-              <th>Ano</th>
-              <th>Placa</th>
-              <th>Cor</th>
-              <th></th>
+              <Th>Imagem</Th>
+              <Th>Modelo</Th>
+              <Th>Ano</Th>
+              <Th>Placa</Th>
+              <Th>Cor</Th>
+              <Th></Th>
             </tr>
           </thead>
           <tbody>
             {cars?.map(car => (
               <tr key={car.plate}>
                 <td>
-                  <img 
-                    className="thumbnail"
+                  <Thumbnail 
                     src={car.image}
                     alt="carro"
                   />
@@ -122,20 +85,51 @@ function App() {
                 <td>{car.plate}</td>
                 <td>{car.color}</td>
                 <td> 
-                  <button
-                    className="button-delete"
-                    onClick={() => handleDelete(car.plate)}
-                  >
+                  <DeleteButton onClick={() => handleDelete(car.plate)}>
                     X
-                  </button>
+                  </DeleteButton>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-    </main>
+      </Register>
+    </Container>
   )
 }
+
+const Container = styled.main`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`
+
+const Register = styled.div`
+  width: 400px;
+  height: 100%;
+  background: #f0f0f0;
+  padding: 40px;
+  margin: 130px;
+  border-radius: 4px;
+`
+
+const Th = styled.th`
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`
+
+const Thumbnail = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+`
+
+const DeleteButton = styled(Button)`
+  width: 40px;
+  height: 40px;
+  margin: 12px;
+`
 
 export default App;
