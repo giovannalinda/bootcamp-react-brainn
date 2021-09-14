@@ -5,38 +5,37 @@ import Button from './Button'
 export default function Form(props) {
   return (
     <form {...props}>
-      <Title>Registro de Carros</Title>
+      <Title>Registrar um novo carro</Title>
 
       <TextField 
         id="image"
-        labelText="Imagem" 
+        placeholder="Imagem" 
         type="url"
         name="image"
       />
 
       <TextField 
         id="brandModel"
-        labelText="Modelo"
+        placeholder="Modelo"
         name="brandModel"
       />
 
       <TextField 
         id="year"
-        labelText="Ano"
+        placeholder="Ano"
         name="year"
         type="number"
       />
 
       <TextField 
         id="plate"
-        labelText="Placa"
+        placeholder="Placa"
         name="plate"
         pattern="[A-Z]{2,3}[0-9]{4}|[A-Z]{3,4}[0-9]{3}|[A-Z0-9]{7}"
       />
 
       <TextField 
         id="color"
-        labelText="Cor"
         name="color"
         type="color"
       />
@@ -44,19 +43,19 @@ export default function Form(props) {
       <SubmitButton 
         type="submit"
       >
-        Cadastrar carro
+        Cadastrar
       </SubmitButton>
     </form>
   )
 }
 
 const Title = styled.h1`
-  color: var(--black);
+  color: var(--white);
   padding: 20px;
 `
 
 const SubmitButton = styled(Button)`
-  width: 415px;
+  width: 480px;
   height: 48px;
   font-size: 14px;
   font-weight: 600;

@@ -3,8 +3,11 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
   :root {
     --white: #fff;
-    --pink: #ff3366;
+    --dark-gray: #2B2D42;
+    --light-gray: #2F3249;
+    --blue: #3F51B5;
     --black: #000;
+    --pink: #FF4D6D;
   }
 
   * {
@@ -14,7 +17,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--white);
+    color: var(--white);
+    background: var(--dark-gray);
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     font-family: Arial, Helvetica, sans-serif;

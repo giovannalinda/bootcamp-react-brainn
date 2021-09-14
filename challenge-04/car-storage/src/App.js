@@ -42,6 +42,8 @@ function App() {
       })
   
     event.target.reset()
+
+    image.focus()
   }
 
   function handleDelete(plate) {
@@ -61,16 +63,6 @@ function App() {
       <Register>
         <Form onSubmit={handleSubmit} />
         <table className="table">
-          <thead>
-            <tr>
-              <Th>Imagem</Th>
-              <Th>Modelo</Th>
-              <Th>Ano</Th>
-              <Th>Placa</Th>
-              <Th>Cor</Th>
-              <Th></Th>
-            </tr>
-          </thead>
           <tbody>
             {cars?.map(car => (
               <tr key={car.plate}>
@@ -80,10 +72,10 @@ function App() {
                     alt="carro"
                   />
                 </td>
-                <td>{car.brandModel}</td>
-                <td>{car.year}</td>
-                <td>{car.plate}</td>
-                <td>{car.color}</td>
+                <Td>{car.brandModel}</Td>
+                <Td>{car.year}</Td>
+                <Td>{car.plate}</Td>
+                <Td>{car.color}</Td>
                 <td> 
                   <DeleteButton onClick={() => handleDelete(car.plate)}>
                     X
@@ -105,18 +97,16 @@ const Container = styled.main`
 `
 
 const Register = styled.div`
-  width: 400px;
+  width: 500px;
   height: 100%;
-  background: #f0f0f0;
+  background: #2F3249;
   padding: 40px;
   margin: 130px;
   border-radius: 4px;
 `
 
-const Th = styled.th`
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+const Table = styled.div`
+  background: #36394F;
 `
 
 const Thumbnail = styled.img`
@@ -129,7 +119,17 @@ const Thumbnail = styled.img`
 const DeleteButton = styled(Button)`
   width: 40px;
   height: 40px;
-  margin: 12px;
+  background: var(--pink);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+`
+
+const Td = styled.td`
+  padding: 10px;
 `
 
 export default App;

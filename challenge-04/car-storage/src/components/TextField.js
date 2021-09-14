@@ -10,17 +10,20 @@ export default function TextField({ id, labelText, ...rest }) {
 }
 
 const Input = styled.input`
-  padding: 10px;
-  margin: 3px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 240px;
+  width: 376px;
+  height: 52px;
+  background: var(--dark-gray);
+  border-radius: 10px;
   border: none;
-  border-radius: 2px;
+  outline: none;
+  color: var(--white);
+  padding: 0 0 0 10px;
+  margin: 0 0 20px 0;
 
   &[type="color"] {
-    height: 90px;
-    width: 150px;
+    height: 52px;
+    width: 376px;
+    background: none;
+    border: none;
   }
 `
